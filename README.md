@@ -24,7 +24,7 @@ Put the draw.lua library and P8SCII.png in that same folder along with any sprit
 
 Again, this is not a Pico 8 emulator, and it does not utilize _init _update _draw loop. Everything goes in the Window:loop() and fenster sets a target FPS. The majority of your program will sit in the Window:loop(), but minimally, your program should first initialize a global table Window, load the PicoDraw library, open a window. A skeletal program that continues to loop until the Esc key is pressed would look like this.
 
-'''
+'''shell
 Window={}
 local draw=require("draw")
 draw.screen(128,128,"PicoDraw",4)
@@ -92,7 +92,7 @@ Opens a window width pixels wide and height pixels high. Scale sets the integer 
 
 Default is true. If true, sprite sheets, maps, and draw functions will store color and accept commands with numbers corresponding to the Pico 8 pallette. If false, commands will expect hex colors. For example, this is both ways to draw a white circle at 20,20 that has a 5 pixel radius.
 
-'''
+'''shell
 circfill(20,20,5,7)
 
 circfill(20,20,5,0xFFFFFF)
@@ -106,7 +106,7 @@ Returns the draw state. If a color is entered, it sets the draw state to that co
 
 When run without parameters, it resets the Col table to default and resets the swapped colors. The Col table is a global table where the index is the Pico 8 pallette number and the value is the hex color code. The pallette can adjusted by editing the table. This table is referenced by the draw function if picopal is true. If picopal is false, you can still directly reference the table. For example:
 
-'''
+'''shell
 picopal(false)
 circfill(20,20,5,Col[7])
 '''
@@ -157,7 +157,7 @@ Loads a 128x128 sprite sheet into memory. Run after running draw.picopal().
 
 Draw sprite number to the (x,y) coordinate. A sprite is an 8x8 square, and there are 16 sprites a row. The top left sprite is 0. For other sized sprites, w and h are scaling factors. to draw a 16x16 sprite that's top left corner is the 8th sprite at coordinates (5,5) write:
 
-'''
+'''shell
 draw.spr(8,5,5,2,2)
 '''
 
