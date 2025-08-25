@@ -2,7 +2,7 @@
 
 > A library to utilize fenster compatible with Pico 8 sprite sheets, the Pico 8 palette, and P8SCII with an API roughly compatible with most of Pico 8's draw functions
 
-This is not a Pico 8 emulator and is not code compatible with Pico 8 carts. The API will be familiar to Pico 8 users, but copying and pasting from a cart's draw loop will likely not work as expected. The intention is to provide a basic graphical interface for Lua that is optionally compatible with the Pico 8 palette and sprite sheets and would be familiar enough to a Pico 8 users be immediately usable. 
+This is not a Pico 8 emulator and is not code compatible with Pico 8 carts. The API will be familiar to Pico 8 users, but copying and pasting from a cart's draw loop will likely not work as expected. The intention is to provide a basic graphical interface for Lua that is optionally compatible with the Pico 8 palette and sprite sheets and would be familiar enough to a Pico 8 users to be immediately usable. 
 
 ## Dependencies and necessary files
 
