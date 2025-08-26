@@ -90,7 +90,7 @@ Opens a window width pixels wide and height pixels high. Scale sets the integer 
 
 * draw.picopal([bool])
 
-Default is true. If true, sprite sheets, maps, and draw functions will store color and accept commands with numbers corresponding to the Pico 8 pallette. If false, commands will expect hex colors. For example, this is both ways to draw a white circle at 20,20 that has a 5 pixel radius.
+Default is true. If true, sprite sheets, maps, and draw functions will store color and accept commands with numbers corresponding to the Pico 8 palette. If false, commands will expect hex colors. For example, this is both ways to draw a white circle at 20,20 that has a 5 pixel radius.
 
 ```shell
 circfill(20,20,5,7)
@@ -100,18 +100,18 @@ circfill(20,20,5,0xFFFFFF)
 
 * draw.color([color])
 
-Returns the draw state. If a color is entered, it sets the draw state to that color. The draw state is the color of the last pixel put on the screen. Defaults to 6 or 0xC2C3C7 which is light gray.
+Returns the draw state. If a color is entered, it sets the draw state to that color. The draw state is the color of the last pixel put on the screen and the default color of the next draw commands until a different color pixel is drawn to screen. Defaults to 6 or 0xC2C3C7 which is light gray.
 
 * draw.pal([c1],[c2])
 
-When run without parameters, it resets the Col table to default and resets the swapped colors. The Col table is a global table where the index is the Pico 8 pallette number and the value is the hex color code. The pallette can adjusted by editing the table. This table is referenced by the draw function if picopal is true. If picopal is false, you can still directly reference the table. For example:
+When run without parameters, it resets the Col table to default and resets the swapped colors. The Col table is a global table where the index is the Pico 8 palette number and the value is the hex color code. The pallette can adjusted by editing the table. This table is referenced by the draw function if picopal is true. If picopal is false, you can still directly reference the table. For example:
 
 ```shell
 picopal(false)
 circfill(20,20,5,Col[7])
 ```
 
-If both parameters are present, when the draw function encounters the first color, the second color will be drawn. When picopal is true, this function accepts integers from -16 to 15. When picopal is false, use hex. The function uses the original pallette color for c2. So pal(7,7) will reset 7 to white even if previously changed.
+If both parameters are present, when the draw function encounters the first color, the second color will be drawn. When picopal is true, this function accepts integers from -16 to 15. When picopal is false, use hex. The function uses the original palette color for c2. So pal(7,7) will reset 7 to white even if previously changed.
 
 * draw.palt(color,[bool])
 
@@ -171,7 +171,7 @@ PicoDraw does not support Pico 8 maps, and PicoDraw maps are not a table of spri
 
 * draw.map([mapx],[mapy],[screenx],[screeny],[maxx],[maxy])
 
-Draws the map sprite to the screen. Mapx and mapy repsent the top left pixel of the map, and it's drawn to the screen beginning at the screenx and screeny coordinate. By default, the entire map image is drawn, and you can use draw.camera() to pan around the image. However, the map function is more computationally expensive than in Pico 8, so you may want to put a limit to what's drawn. Maxx and maxy sets the maximum map coordinate drawn.
+Draws the map sprite to the screen. Mapx and mapy repsent the top left pixel of the map area being sampled, and it's drawn to the screen beginning at the screenx and screeny coordinate. By default, the entire map image is drawn, and you can use draw.camera() to pan around the image. However, the map function is more computationally expensive than in Pico 8, so you may want to put a limit to what's drawn. Maxx and maxy sets the maximum map coordinate drawn.
 
 * draw.tlinedraw.tline(x1,y1,x2,y2,mx,my,[mdx],[mdy],[maxx],[maxy],[minx],[miny],[term])
 
